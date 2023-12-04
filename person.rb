@@ -22,5 +22,3 @@ class Person
     return of_age? || @parent_permission
   end
 end
-
-
