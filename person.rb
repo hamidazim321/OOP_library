@@ -8,6 +8,7 @@ class Person < Nameable
     @name = name
     @age = age.to_i
     @parent_permission = parent_permission
+    super()
   end
 
   private
