@@ -16,7 +16,6 @@ class Person < Nameable
 
   def of_age?
     return true if @age >= 18
-
     false
   end
 
@@ -31,6 +30,6 @@ class Person < Nameable
   end
 
   def add_rental(rental)
-    @rentals.push(rental)
+    @rentals.push(rental) unless @rentals.include?(rental)
   end
 end

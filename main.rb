@@ -29,7 +29,7 @@ def main
     when 6
       app.list_rentals
     when 7
-      puts "Thank you for using our app"
+      puts "Thank you for using this app"
       exit
     else
       puts "Invalid option. Please choose a number between 1 and 7."
