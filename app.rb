@@ -97,6 +97,13 @@ class App
   end
 
   def create_rental
+    if @books.length < 1
+      puts "No books to rent in the list, please add books"
+      return
+    elsif @people.length < 1
+      puts "Must add a person in the list before renting a book"
+      return
+    end
     print "Date: "
     date = gets.chomp
     book_index = select_book
