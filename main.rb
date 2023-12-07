@@ -11,6 +11,7 @@ def display_menu
   puts '7 - Exit'
 end
 
+# rubocop:disable Metrics/CyclomaticComplexity
 def process_option(option, app)
   case option
   when 1
@@ -32,6 +33,7 @@ def process_option(option, app)
     puts 'Invalid option. Please choose a number between 1 and 7.'
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
 
 def main
   app = App.new
