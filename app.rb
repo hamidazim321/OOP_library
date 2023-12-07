@@ -12,49 +12,49 @@ class App
   end
 
   private
+
   def select_person
-    puts "Select a person from the following (not ID)"
+    puts 'Select a person from the following (not ID)'
     @people.each_with_index do |person, index|
       puts " #{index}) [#{person.class}], Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-    print "Enter the index of the person: "
-    index_input = gets.chomp.to_i
+    print 'Enter the index of the person: '
+    gets.chomp.to_i
   end
 
   def select_book
-    puts "Select a book from the following"
+    puts 'Select a book from the following'
     @books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
-    print "Enter the index of the book: "
-    index_input = gets.chomp.to_i
+    print 'Enter the index of the book: '
+    gets.chomp.to_i
   end
 
   def create_student(name, age)
     if age < 18
-      print "Has parent permission? [Y/N]: "
-        permission = gets.chomp
-        has_permission = permission.capitalize == 'Y'
-        student = Student.new(age, name, parent_permission: has_permission)
-        @people.push(student)
-        return
+      print 'Has parent permission? [Y/N]: '
+      permission = gets.chomp
+      has_permission = permission.capitalize == 'Y'
+      student = Student.new(age, name, parent_permission: has_permission)
     else
       student = Student.new(age, name)
-      @people.push(student)
-      return
     end
+    @people.push(student)
+    nil
   end
 
   def create_teacher(name, age)
-    print "Specialization: "
-      specialization = gets.chomp
-      teacher = Teacher.new(age, specialization, name)
-      @people.push(teacher)
+    print 'Specialization: '
+    specialization = gets.chomp
+    teacher = Teacher.new(age, specialization, name)
+    @people.push(teacher)
   end
+
   public
 
   def list_books
-    puts "Books:"
+    puts 'Books:'
     @books.each_with_index do |book, index|
       puts "  #{index}) Title: #{book.title}, Author: #{book.author}"
     end
@@ -62,7 +62,7 @@ class App
   end
 
   def list_people
-    puts "People:"
+    puts 'People:'
     @people.each do |person|
       puts "  [#{person.class.name}], Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
@@ -70,54 +70,54 @@ class App
   end
 
   def create_person
-    puts "Do you want to create a student (1) or a teacher (2)"
+    puts 'Do you want to create a student (1) or a teacher (2)'
     option = gets.chomp.to_i
-    print "Age: "
+    print 'Age: '
     age = gets.chomp.to_i
-    print "Name: "
+    print 'Name: '
     name = gets.chomp
     if option == 1
       create_student(name, age)
     else
       create_teacher(name, age)
     end
-    puts "Person Created Successfully!"
+    puts 'Person Created Successfully!'
     puts
   end
 
   def create_book
-    print "Title: "
+    print 'Title: '
     title = gets.chomp
-    print "Author: "
+    print 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
-    puts "Book Created Successfully!"
+    puts 'Book Created Successfully!'
     puts
   end
 
   def create_rental
-    if @books.length < 1
-      puts "No books to rent in the list, please add books"
+    if @books.empty?
+      puts 'No books to rent in the list, please add books'
       return
-    elsif @people.length < 1
-      puts "Must add a person in the list before renting a book"
+    elsif @people.empty?
+      puts 'Must add a person in the list before renting a book'
       return
     end
-    print "Date: "
+    print 'Date: '
     date = gets.chomp
     book_index = select_book
     person_index = select_person
     Rental.new(date, @books[book_index], @people[person_index])
-    puts "Rental Created Successfully"
+    puts 'Rental Created Successfully'
     puts
   end
 
   def list_rentals
-    print "ID of the person: "
+    print 'ID of the person: '
     input_id = gets.chomp.to_i
-    person = @people.find{ |person| person.id == input_id}
-    puts "Rentals:"
+    person = @people.find { |element| element.id == input_id }
+    puts 'Rentals:'
     person.rentals.each_with_index do |rental, index|
       puts "  #{index}) Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
     end
