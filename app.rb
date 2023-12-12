@@ -6,9 +6,11 @@ require_relative 'student'
 require_relative 'teacher'
 
 class App
+  attr_accessor :books, :people, :rentals
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   private
@@ -108,7 +110,8 @@ class App
     date = gets.chomp
     book_index = select_book
     person_index = select_person
-    Rental.new(date, @books[book_index], @people[person_index])
+    new_rental = Rental.new(date, @books[book_index], @people[person_index])
+    @rentals.push(new_rental)
     puts 'Rental Created Successfully'
     puts
   end
