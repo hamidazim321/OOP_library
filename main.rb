@@ -52,7 +52,7 @@ class Main
       @app.list_rentals
     when 7
       puts 'Thank you for using this app'
-      save_data()
+      save_data
       exit
     else
       puts 'Invalid option. Please choose a number between 1 and 7.'
@@ -63,7 +63,7 @@ class Main
   public
 
   def run
-    load_data()
+    load_data
     loop do
       display_menu
       option = gets.chomp.to_i
@@ -71,5 +71,4 @@ class Main
     end
   end  
 end
-
 Main.new.run
