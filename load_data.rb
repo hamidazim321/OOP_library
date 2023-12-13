@@ -16,7 +16,7 @@ class LoadData
 
   def load_books
     books = get_file_json('books.json')
-    return if people.nil?
+    return if books.nil?
 
     books.each do |book|
       new_book = Book.new(book['author'], book['title'])
