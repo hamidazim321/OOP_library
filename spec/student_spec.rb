@@ -13,4 +13,10 @@ describe 'testing student class' do
     expect(student.parent_permission).to eq false
     expect(student.classroom).to eq 'Science'
   end
+
+  it "Should return '¯(ツ)/¯' on calling play_hooky method" do
+    student = Student.new(18)
+
+    expect(student.play_hooky).to eq('¯(ツ)/¯')
+  end
 end
