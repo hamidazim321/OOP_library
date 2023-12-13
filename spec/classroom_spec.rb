@@ -27,15 +27,15 @@ describe Classroom do
     @classroom = Classroom.new(@label)
   end
 
-  context "When initialized" do
-    it "Should add student to list of students" do
+  context 'When initialized' do
+    it 'Should add student to list of students' do
       @classroom.add_student(@student)
       student_list = @classroom.students
 
       expect(student_list).to include(@student)
     end
 
-    it "Should run the classroom method on the given student in add_student method" do
+    it 'Should run the classroom method on the given student in add_student method' do
       @classroom.add_student(@student)
       expect(@student).to have_received(:classroom=).with(@classroom)
     end

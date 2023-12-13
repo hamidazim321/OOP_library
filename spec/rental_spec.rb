@@ -16,13 +16,13 @@ describe Rental do
   end
 
   context 'When initialized' do
-    it "Should run the add_rental method on Book and Person object given in parameter" do
+    it 'Should run the add_rental method on Book and Person object given in parameter' do
       # Expect add_rental to be called on book and person with the rental object as a parameter
       expect(@book).to have_received(:add_rental).with(@rental)
       expect(@person).to have_received(:add_rental).with(@rental)
     end
 
-    it "Should return the correct date, book, and person" do
+    it 'Should return the correct date, book, and person' do
       expect(@rental.date).to eq @date
       expect(@rental.book).to be @book
       expect(@rental.person).to be @person
