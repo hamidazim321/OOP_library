@@ -7,7 +7,7 @@ describe 'testing the book class' do
     expect(book.author).to eql 'F. Scott Fitzgerald'
   end
 
-  it "Should add rental a to the rental list on add_rental method" do
+  it 'Should add rental a to the rental list on add_rental method' do
     fake_rental = {
       date: '12-23-22',
       book: 'Game Of Thrones'

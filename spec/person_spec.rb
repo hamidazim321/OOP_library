@@ -14,7 +14,7 @@ describe 'testing the person class' do
     expect(person.correct_name).to eq 'John Doe'
   end
 
-  it 'Should return true on can_use_services? method if person if 18 or above or have parent permission otherwise false' do
+  it 'Should return true on can_use_services? method only if person is 18 or above or have parent permission' do
     person1 = Person.new(23, 'John')
     person2 = Person.new(17, 'Max')
     person3 = Person.new(17, 'Floyd', parent_permission: false)
@@ -24,13 +24,13 @@ describe 'testing the person class' do
     expect(person3.can_use_services?).to be(false)
   end
 
-  it 'Should return name on correct_name method' do 
+  it 'Should return name on correct_name method' do
     person = Person.new(22, 'Jake')
 
     expect(person.correct_name).to eq('Jake')
   end
 
-  it "Should add rental a to the rental list on add_rental method" do
+  it 'Should add rental a to the rental list on add_rental method' do
     fake_rental = {
       date: '12-23-22',
       book: 'Game Of Thrones'
