@@ -69,6 +69,6 @@ class Main
       option = gets.chomp.to_i
       process_option(option)
     end
-  end  
+  end
 end
 Main.new.run
